@@ -1,77 +1,43 @@
-import navbar from "../../utils/navbar.jsx";
-
+import { FaArrowRight } from "react-icons/fa";
+import { motion } from "framer-motion";
+import videoBg from "../../assets/vidoes/background.mp4";
+import SubTitle from "../Generics/Subtitle";
+import Button from "../Generics/Button";
+import image from "../../assets/icons/wave.svg";
 import {
-  Logo,
-  NavItem,
-  Section,
-  Wrapper,
-  NavWrapper,
-  Dropdown,
-  DropdownItem,
-  IconImg,
-} from "./style.js";
+  BackgroundImage,
+  Container,
+  GreyWrap,
+  MarketingWrap,
+  TitleStyle,
+  VideoBackground,
+} from "./style";
 
-import Title from "../Generics/Title/index.jsx";
-
-import Home from "../Home/index.jsx";
-import Button from "../Generics/Button/index.jsx";
-import { useNavigate } from "react-router-dom";
-
-const Navbar = () => {
-  const navigate = useNavigate();
+const Home = () => {
   return (
-    <Wrapper>
-      <NavWrapper>
-        <Section>
-          <Logo onClick={() => navigate("/home")}>Panda</Logo>
-          {navbar.map(({ title, path, id, child }, i) => {
-            return (
-              <NavItem
-                to={!child && path}
-                key={i}
-                smooth={"true"}
-                duration={500}
-              >
-                <Title size={14} weight={600}>
-                  {title}
-                </Title>
-
-                {child && (
-                  <Dropdown className="dropdown">
-                    {child?.map((v, i) => (
-                      <DropdownItem to={v.path} key={i}>
-                        <Title size={14} weight={600}>
-                          {v.title}
-                        </Title>
-                      </DropdownItem>
-                    ))}
-                  </Dropdown>
-                )}
-              </NavItem>
-            );
-          })}
-          <IconImg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M10 2a8 8 0 1 0 6.32 13.47l4.39 4.39a1 1 0 0 0 1.42-1.42l-4.39-4.39A8 8 0 0 0 10 2zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12z" />
-          </IconImg>
-        </Section>
-        <Section>
-          <Title size={18} weight={800}>
-            +998 99 469 88 91
-          </Title>
-          <Button
-            onClick={() => navigate("/contacts")}
-            padding={"13px 40px"}
-            bgcolor="#ff2e57"
-          >
-            <Title size={14} weight={600}>
-              Let's Talk
-            </Title>
-          </Button>
-        </Section>{" "}
-      </NavWrapper>
-
-      <Home />
-    </Wrapper>
+    <Container>
+      <VideoBackground>
+        <video src={videoBg} autoPlay loop muted playsInline></video>
+      </VideoBackground>
+      <GreyWrap></GreyWrap>
+      <BackgroundImage>
+        <img src={image} alt="No image" />
+      </BackgroundImage>
+      <MarketingWrap>
+        <TitleStyle>
+          Right Social Networking
+          <br /> for Marketing
+        </TitleStyle>
+        <SubTitle color="white">
+          Consectetur adipiscing elit, sed do eiusmod tempor incididunt <br />
+          dolore magna aliqua quis nostrud exerc.
+        </SubTitle>
+        <Button bgcolor={"#8f6dff"} padding={"15px 45px"}>
+          Discover Now
+        </Button>
+      </MarketingWrap>
+    </Container>
   );
 };
-export default Navbar;
+
+export default Home;

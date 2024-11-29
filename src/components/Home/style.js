@@ -1,124 +1,147 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
-const Wrapper = styled.div`
+const Container = styled.div`
   width: 100%;
-  background-color: var(--bgColor);
-`;
-
-const NavWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 65px;
-  height: 100px;
-  font-family: "Montserrat", sans-serif;
+  justify-content: center;
+  flex-direction: column;
 `;
-const Logo = styled.h1`
-  color: var(--activeColor);
-  font-size: 30px;
-  margin-right: 60px;
-  cursor: pointer;
-`;
-const Section = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-`;
-const NavItem = styled(NavLink)`
-  position: relative;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
 
-  &:hover {
-    transform: scale(1);
-  }
+const VideoBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -999;
 
-  &::after {
-    content: "";
+  video {
     position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: white;
-    transition: width 0.3s ease;
-  }
-
-  &:hover::after {
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100vh;
+    object-fit: cover;
+    z-index: -999;
   }
 `;
 
-const Dropdown = styled.div`
+const GreyWrap = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -5;
+`;
+
+const MarketingWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  height: 80vh;
+  text-align: center;
+`;
+
+const TitleStyle = styled.h1`
+  font-size: 55px;
+  text-align: center;
+  color: white;
+  font-family: "Monserrat" sans-serif;
+`;
+
+const BackgroundImage = styled.div`
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 100%;
+`;
+
+const CardWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3em 0;
+  background-color: white;
+  border-radius: 6px;
+`;
+
+const CardContainer = styled.div`
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 100px;
-  left: -20px;
-  background-color: var(--primaryColor);
-  padding: 10px 15px;
-  border-radius: 4px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: space-between;
   color: white;
-  font-size: 14px;
-  min-width: 190px;
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-
-  ${NavItem}:hover & {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-    top: 65px;
-  }
-`;
-const DropdownItem = styled.div`
-  position: relative;
-  padding: 8px 0;
-  color: white;
-  font-size: 16px;
-  transition: all 0.3s ease;
+  text-align: center;
 
   &:hover {
-    transform: translateX(10px);
-  }
-  cursor: pointer;
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: white;
-    transition: width 0.3s ease;
-  }
-
-  &:hover::after {
-    width: 70%;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); // Hoverda shaklni o'zgartirish
   }
 `;
-const IconImg = styled.svg`
-  width: 24px; /* O'lcham */
-  height: 24px;
-  fill: white;
-  transition: transform 0.3s ease, fill 0.3s ease;
-  margin-left: 2vw;
-  cursor: pointer;
+
+const IconWrapper = styled.img`
+  font-size: 50px;
+  margin-bottom: 20px;
 `;
+
+const StyledButton = styled.div`
+  position: relative;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: #6e8efb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 15px;
+  cursor: pointer;
+  overflow: hidden;
+`;
+
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+`;
+
+const Text = styled.span`
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0; // Text initialda ko'rinmas
+`;
+
+const ArrowIcon = styled.div`
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+`;
+
 export {
-  NavWrapper,
-  Wrapper,
-  Logo,
-  Section,
-  NavItem,
-  Dropdown,
-  DropdownItem,
-  IconImg,
+  Container,
+  VideoBackground,
+  GreyWrap,
+  MarketingWrap,
+  TitleStyle,
+  BackgroundImage,
+  CardWrapper,
+  CardContainer,
+  IconWrapper,
+  StyledButton,
+  Text,
+  ArrowIcon,
+  Content,
 };
