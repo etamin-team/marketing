@@ -1,17 +1,18 @@
-import { FaArrowRight } from "react-icons/fa";
-import { motion } from "framer-motion";
 import videoBg from "../../assets/vidoes/background.mp4";
 import SubTitle from "../Generics/Subtitle";
 import Button from "../Generics/Button";
 import image from "../../assets/icons/wave.svg";
 import {
   BackgroundImage,
+  CardContainer,
   Container,
   GreyWrap,
   MarketingWrap,
   TitleStyle,
   VideoBackground,
 } from "./style";
+import Card from "../Card";
+import cardInfo from "../../utils/cardInfo";
 
 const Home = () => {
   return (
@@ -36,6 +37,11 @@ const Home = () => {
           Discover Now
         </Button>
       </MarketingWrap>
+      <CardContainer>
+        {cardInfo.map((v) => {
+          return <Card date={v} />;
+        })}
+      </CardContainer>
     </Container>
   );
 };
