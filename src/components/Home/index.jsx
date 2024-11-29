@@ -38,8 +38,10 @@ const Home = () => {
         </Button>
       </MarketingWrap>
       <CardContainer>
-        {cardInfo.map((v) => {
-          return <Card date={v} />;
+        {cardInfo.map((v, i) => {
+          return (
+            <Card key={i} date={v} br={cardInfo.length - 1 != i ? 1 : 0} />
+          );
         })}
       </CardContainer>
     </Container>
