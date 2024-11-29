@@ -32,7 +32,7 @@ const Home = () => {
           Consectetur adipiscing elit, sed do eiusmod tempor incididunt <br />
           dolore magna aliqua quis nostrud exerc.
         </SubTitle>
-        <Button bgcolor={"#8f6dff"} padding={"15px 45px"}>
+        <Button bgcolor={"#8f6dff"} color="white" padding={"15px 45px"}>
           Discover Now
         </Button>
       </MarketingWrap>

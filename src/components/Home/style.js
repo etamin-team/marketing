@@ -36,7 +36,7 @@ const GreyWrap = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(8, 3, 55, 0.5);
   z-index: -5;
 `;
 
@@ -54,7 +54,7 @@ const TitleStyle = styled.h1`
   font-size: 55px;
   text-align: center;
   color: white;
-  font-family: "Monserrat" sans-serif;
+  font-family: "Montserrat" sans-serif;
 `;
 
 const BackgroundImage = styled.div`

@@ -16,7 +16,7 @@ const navbar = [
       {
         id: 1,
         title: "Creative Agency",
-        path: "/home",
+        path: "/home1",
       },
     ],
   },
@@ -27,8 +27,8 @@ const navbar = [
     child: [
       {
         id: 1,
-        title: "Creative Agency",
-        path: "/home",
+        title: "Pages",
+        path: "/pages",
       },
     ],
   },
@@ -39,8 +39,8 @@ const navbar = [
     child: [
       {
         id: 1,
-        title: "Creative Agency",
-        path: "/home",
+        title: "Portfolio",
+        path: "/portfolio",
       },
     ],
   },
@@ -51,8 +51,8 @@ const navbar = [
     child: [
       {
         id: 1,
-        title: "Creative Agency",
-        path: "/home",
+        title: "Block",
+        path: "/block",
       },
     ],
   },

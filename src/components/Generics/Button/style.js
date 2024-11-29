@@ -9,22 +9,23 @@ const Container = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    opacity: 0.99;
+    opacity: 0.95;
   }
 
   &:active {
-    transform: translate(1);
+    transform: scale(0.99);
   }
 
   display: flex;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 24px;
 
   color: ${({ color }) => (color ? color : "var(--primaryColor)")};
   font-weight: ${({ fw }) => (fw ? fw : "500")};
-  padding: ${({ padding }) => (padding ? padding : "5px")};
+  padding: ${({ padding }) => getValue(padding, "5px")};
   width: fit-content;
   flex-wrap: nowrap;
 `;

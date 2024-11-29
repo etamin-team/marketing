@@ -46,7 +46,7 @@ const NavItem = styled(NavLink)`
     position: absolute;
     bottom: -5px;
     left: 0;
-    width: 0%;
+    width: ${({ active }) => (active ? "100%" : "0%")};
     height: 2px;
     background-color: white;
     transition: width 0.3s ease;
@@ -73,23 +73,24 @@ const Dropdown = styled.div`
   visibility: hidden;
   opacity: 0;
   transform: translateY(-10px);
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 
   ${NavItem}:hover & {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-    top: 65px;
+    top: 50px;
   }
 `;
 
-const DropdownItem = styled.div`
+const DropdownItem = styled(NavLink)`
   position: relative;
   padding: 8px 0;
   color: white;
   font-size: 16px;
   transition: all 0.3s ease;
-
+  text-decoration: none;
+  transform: ${({ active }) => active && "translateX(10px)"};
   &:hover {
     transform: translateX(10px);
   }
@@ -99,7 +100,7 @@ const DropdownItem = styled.div`
     content: "";
     position: absolute;
     left: 0;
-    width: 0%;
+    width: ${({ active }) => (active ? "70%" : "0%")};
     height: 2px;
     background-color: white;
     transition: width 0.3s ease;

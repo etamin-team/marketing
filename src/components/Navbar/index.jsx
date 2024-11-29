@@ -15,20 +15,22 @@ import Title from "../Generics/Title/index.jsx";
 
 import Home from "../Home/index.jsx";
 import Button from "../Generics/Button/index.jsx";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Wrapper>
       <NavWrapper>
         <Section>
           <Logo onClick={() => navigate("/home")}>Panda</Logo>
-          {navbar.map(({ title, path, id, child }, i) => {
+          {navbar.map(({ title, path, child }, i) => {
             return (
               <NavItem
                 to={!child && path}
+                active={location.pathname == path ? 1 : 0}
                 key={i}
                 smooth={"true"}
                 duration={500}
@@ -40,7 +42,12 @@ const Navbar = () => {
                 {child && (
                   <Dropdown className="dropdown">
                     {child?.map((v, i) => (
-                      <DropdownItem to={v.path} key={i}>
+                      <DropdownItem
+                        to={v.path}
+                        key={i}
+                        smooth={"true"}
+                        active={location.pathname == v.path ? 1 : 0}
+                      >
                         <Title size={14} weight={600}>
                           {v.title}
                         </Title>
