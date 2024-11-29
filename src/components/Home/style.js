@@ -62,6 +62,7 @@ const BackgroundImage = styled.div`
   bottom: -12px;
   left: 0;
   width: 100%;
+  z-index: -1;
 `;
 
 const CardWrapper = styled.div`
@@ -78,15 +79,14 @@ const CardContainer = styled.div`
   border-radius: 15px;
   padding: 20px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: space-between;
   color: white;
   text-align: center;
+  max-width: 1023px;
 
-  &:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); // Hoverda shaklni o'zgartirish
-  }
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); // Hoverda shaklni o'zgartirish
 `;
 
 const IconWrapper = styled.img`
